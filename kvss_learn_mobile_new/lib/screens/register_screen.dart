@@ -110,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             TextField(
               controller: _mobileController,
-              decoration: const InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Mobile'),
             ),
             TextField(
               controller: _passwordController,

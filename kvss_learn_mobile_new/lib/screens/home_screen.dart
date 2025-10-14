@@ -83,6 +83,14 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: const Text('📘 View Lessons'),
             ),
+
+              ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: const Text('📘 View/update Profile'),
+            ),
+
           ],
         ),
       ),

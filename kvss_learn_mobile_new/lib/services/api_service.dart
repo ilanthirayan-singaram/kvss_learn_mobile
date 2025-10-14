@@ -3,18 +3,19 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://192.168.1.5:8000/api/v1'; // 🔁 adjust to your Laravel API
+  static const String baseUrl = 'https://learning.kvsoftsolutions.com/api/v1'; // 🔁 adjust to your Laravel API
 
   // ---------------------------
   // LOGIN / REGISTER FUNCTIONS
   // ---------------------------
-  static Future<Map<String, dynamic>> registerUser(String name, String email, String password,String confirmPassword) async {
+  static Future<Map<String, dynamic>> registerUser(String name, String email, String mobile, String password,String confirmPassword) async {
     final response = await http.post(
       Uri.parse('$baseUrl/register'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'name': name,
         'email': email,
+        'mobile':mobile,
         'password': password,
         "password_confirmation":confirmPassword
       }),
@@ -22,6 +23,34 @@ class ApiService {
 
     return jsonDecode(response.body);
   }
+
+
+  // Fetch Profile
+  static Future<Map<String, dynamic>> fetchProfile() async {
+    final token = await getToken();
+    final response = await http.get(
+      Uri.parse('$baseUrl/profile'),
+      headers: {'Authorization': 'Bearer $token'},
+    );
+
+    return jsonDecode(response.body);
+  }
+
+// Update Profile
+ static Future<Map<String, dynamic>> updateProfile(Map<String, dynamic> data) async {
+    final token = await getToken();
+    final response = await http.put(
+      Uri.parse('$baseUrl/profile'),
+      headers: {
+        'Authorization': 'Bearer $token',
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(data),
+    );
+
+    return jsonDecode(response.body);
+  }
+
 
   // Get saved token
   static Future<String?> getToken() async {

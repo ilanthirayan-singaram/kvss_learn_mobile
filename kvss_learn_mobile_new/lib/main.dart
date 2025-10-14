@@ -4,6 +4,7 @@ import 'screens/home_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/lessons_screen.dart';
+import 'screens/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
   '/register': (context) => const RegisterScreen(),
   '/home': (context) =>   const HomeScreen(userEmail: 'User'),
   '/lessons': (context) => const LessonsScreen(),
+  '/profile': (context) => const ProfileScreen(),
       },
     );
   }
