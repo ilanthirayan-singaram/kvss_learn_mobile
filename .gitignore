@@ -1,4 +1,9 @@
 # Miscellaneous
+*.rpm
+*.apk
+*.aab
+*.zip
+build/
 *.class
 *.log
 *.pyc
