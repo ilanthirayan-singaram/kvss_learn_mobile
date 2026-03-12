@@ -3,7 +3,12 @@ import '../services/api_service.dart';
 import '../screens/login_screen.dart';
 import '../screens/lessons_screen.dart';
 import '../utils/token_storage.dart';
+<<<<<<< HEAD
 
+=======
+import '../config/api_config.dart';
+import 'lesson_list_screen.dart';
+>>>>>>> 4eab97b (Remove large RPM file)
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
@@ -64,14 +69,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
       }
     
       if (token != null) {
+<<<<<<< HEAD
         await saveToken(token);
+=======
+        await TokenStorage.save(token);
+      //  await saveToken(token);
+>>>>>>> 4eab97b (Remove large RPM file)
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Registration successful!')),
         );
 
         Navigator.pushReplacement(
           context,
+<<<<<<< HEAD
           MaterialPageRoute(builder: (_) => const LessonsScreen()),
+=======
+          MaterialPageRoute(builder: (_) => LessonListScreen()),
+>>>>>>> 4eab97b (Remove large RPM file)
         );
       } else {
         final msg = result['message'] ?? 'Registered but no token returned. Please login.';

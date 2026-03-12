@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import '../utils/token_storage.dart';
+<<<<<<< HEAD
 
+=======
+import '../config/api_config.dart';
+import '../screens/lessons_screen.dart';
+import 'lesson_list_screen.dart';
+>>>>>>> 4eab97b (Remove large RPM file)
 class HomeScreen extends StatefulWidget {
   final String userEmail;
 
@@ -21,7 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _checkToken() async {
+<<<<<<< HEAD
     final savedToken = await getToken();
+=======
+     final  savedToken = await TokenStorage.get();
+   // final savedToken = await getToken();
+
+
+>>>>>>> 4eab97b (Remove large RPM file)
     if (!mounted) return;
   
     if (savedToken == null || savedToken.isEmpty) {
@@ -64,7 +77,12 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () async {
+<<<<<<< HEAD
               await clearToken();
+=======
+              await TokenStorage.clear();
+            //  await clearToken();
+>>>>>>> 4eab97b (Remove large RPM file)
               if (!mounted) return;
               Navigator.pushReplacementNamed(context, '/login');
             },
@@ -79,11 +97,27 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+<<<<<<< HEAD
                 Navigator.pushNamed(context, '/lessons');
               },
               child: const Text('📘 View Lessons'),
             ),
 
+=======
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      // builder: (_) => LessonsScreen(),
+                      builder: (_) => LessonListScreen(),
+                    ),
+                  );
+
+         //       Navigator.pushNamed(context, '/lessons');
+              },
+              child: const Text('📘 View Lessons'),
+            ),
+>>>>>>> 4eab97b (Remove large RPM file)
               ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/profile');

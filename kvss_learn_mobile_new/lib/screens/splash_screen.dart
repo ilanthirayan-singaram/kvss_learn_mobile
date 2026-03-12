@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import '../utils/token_storage.dart';
 import '../services/api_service.dart';
+<<<<<<< HEAD
+=======
+import '../config/api_config.dart';
+>>>>>>> 4eab97b (Remove large RPM file)
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -20,7 +24,12 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 2));
 
     // Safely get the saved token
+<<<<<<< HEAD
     final token = await getToken();
+=======
+    final token = await TokenStorage.get();
+    // final token = await getToken();
+>>>>>>> 4eab97b (Remove large RPM file)
 
     // Check again if widget is still active
     if (!mounted) return;

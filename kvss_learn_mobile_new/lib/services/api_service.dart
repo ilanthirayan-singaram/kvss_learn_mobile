@@ -3,7 +3,11 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
+<<<<<<< HEAD
   static const String baseUrl = 'https://learning.kvsoftsolutions.com/api/v1'; // 🔁 adjust to your Laravel API
+=======
+  static const String baseUrl = 'https://learning.kvsoftsolutions.com/public/api/v1'; // 🔁 adjust to your Laravel API
+>>>>>>> 4eab97b (Remove large RPM file)
 
   // ---------------------------
   // LOGIN / REGISTER FUNCTIONS

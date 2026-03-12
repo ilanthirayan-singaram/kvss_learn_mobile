@@ -23,7 +23,10 @@ class MyApp extends StatelessWidget {
   '/login': (context) => const LoginScreen(),
   '/register': (context) => const RegisterScreen(),
   '/home': (context) =>   const HomeScreen(userEmail: 'User'),
+<<<<<<< HEAD
   '/lessons': (context) => const LessonsScreen(),
+=======
+>>>>>>> 4eab97b (Remove large RPM file)
   '/profile': (context) => const ProfileScreen(),
       },
     );

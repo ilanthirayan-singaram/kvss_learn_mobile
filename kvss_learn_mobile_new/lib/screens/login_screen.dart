@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import 'home_screen.dart';
 import '../utils/token_storage.dart';
+<<<<<<< HEAD
+=======
+import '../config/api_config.dart';
+import 'lesson_list_screen.dart';
+// import '../services/auth_service.dart';
+>>>>>>> 4eab97b (Remove large RPM file)
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -32,6 +38,7 @@ if (response['status'] == 'success') {
     const SnackBar(content: Text('Login Successful')),
   );
  final token = response['data']?['token'];
+<<<<<<< HEAD
 if (token != null) {
   // Save token locally
  
@@ -40,12 +47,25 @@ if (token != null) {
   await saveToken(token);
  // final verifyToken = await getToken();
   
+=======
+
+
+if (token != null) {
+  
+  await TokenStorage.save(token);
+
+  final savedToken = await TokenStorage.get();
+
+    print("Saved token: $savedToken");
+
+>>>>>>> 4eab97b (Remove large RPM file)
  if (!mounted) return; // ✅ ensure context is safe
 
   // Navigate to HomeScreen and replace login screen
   Navigator.pushReplacement(
     context,
     MaterialPageRoute(
+<<<<<<< HEAD
       builder: (context) => HomeScreen(userEmail: _emailController.text),
     ),
   );
@@ -66,12 +86,27 @@ if (token != null) {
 print( "navegating");
       // Navigate to dashboard or home page
       Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+=======
+    //  builder: (context) => HomeScreen(userEmail: _emailController.text),
+    builder: (_) => LessonListScreen(),
+    ),
+  );
+} else {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text(response['message'] ?? 'Token missing')),
+  );
+}
+>>>>>>> 4eab97b (Remove large RPM file)
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(response['message'] ?? 'Login failed')),
       );
     }
+<<<<<<< HEAD
   }
+=======
+  } 
+>>>>>>> 4eab97b (Remove large RPM file)
 
   @override
   Widget build(BuildContext context) {
